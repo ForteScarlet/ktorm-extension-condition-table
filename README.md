@@ -118,17 +118,21 @@ object Departments : ConditionalTable<Department>("t_department") {
 }
 ```
 
-对于 `id` 字段，使用了 `conditionOn { ... }`。当使用实体类查询的时候，
+- 对于 `id` 字段，使用了 `conditionOn { ... }`。当使用实体类查询的时候，
 会自动向条件中填充 `if (value != null) column eq value else column eq 1` 的结果，
 即如果 `id` 不为null，则SQL中相当于 `value = ${id}`；
 如果 `id` 为null，则SQL中相当于 `value = 1`。
 
-对于 `name` 字段，使用了 `conditionNotNullOn { ... }`。当使用实体类查询的时候，只有在实体类中的 `name` 不为null的时候，
+<br/>
+
+- 对于 `name` 字段，使用了 `conditionNotNullOn { ... }`。当使用实体类查询的时候，只有在实体类中的 `name` 不为null的时候，
 自动向条件中填充 `column like "%$value%"` 的结果，
 即如果 `name` 不为null，则SQL中(类似的)相当于 `name LIKE CONCAT('%', ${name}, '%')`；
 如果 `name` 为null，则不生成。
 
-对于 `location` 字段，由于没有定义条件，因此不会产生条件。
+<br/>
+
+- 对于 `location` 字段，由于没有定义条件，因此不会产生条件。
 
 > `conditionOn { ... }` 和 `conditionNotNullOn { ... }` 理论上是可以重复使用的，
 > 多次调用后，查询时会产生两次条件的并集。（ condition1 and condition2 ）
