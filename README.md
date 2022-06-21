@@ -213,22 +213,21 @@ database.from(Departments).select().whereByOr(Departments, entity) {
 
 ```kotlin
 // (1)
-database.departments.filterBy(entity) { table, condition ->
-    condition and (table.location eq locationWrapper)
+database.departments.filterBy(entity) { table, condition -> // condition: notnull
+    condition and (table.location eq locationWrapper) // return: notnull
 }.forEach {
     // ...
 }
 
 // (2)
-database.departments.filterByOr(entity) { table, condition ->
-    val extraCondition = table.location eq locationWrapper
-    condition?.and(extraCondition) ?: extraCondition
+database.departments.filterByOr(entity) { table, condition -> // condition: nullable
+    condition?.and(table.location eq locationWrapper) // return: nullable
 }.forEach {
     // ...
 }
 ```
 
-可以看出，以 `By` 结尾的函数中，最后的函数参数的额外条件返回值**不可为null**，而 `ByOr` 接口的函数**允许其为null**。
+可以看出，以 `By` 结尾的函数中，最后的额外条件函数的参数 `condition` 和返回值 **不可为null** ，而 `ByOr` 接口的函数**允许它们为null**。
 
 
 
