@@ -4,7 +4,7 @@ plugins {
     kotlin("jvm") version "1.7.0"
 }
 
-group = "love.forte.ktorm-extra"
+group = "love.forte.ktorm-extension"
 version = "1.0-SNAPSHOT"
 
 repositories {
