@@ -1,10 +1,10 @@
-# Ktorm Extension: Condition Table
+# [Ktorm][ktorm-home] Extension: Condition Table
 
-TODO喵～
-
-作为 [Ktorm][ktorm-home] 的一个简易扩展库，为 [Ktorm][ktorm-home] 提供简易扩展类 `ConditionTable`，
+作为 [**Ktorm**][ktorm-home] 的一个简易扩展库，
+为 [**Ktorm**][ktorm-home] 提供简易扩展类 `ConditionTable`，
 提供支持通过实体类进行查询的api。
 
+> ⚠️ 仍在建设中
 
 ## 快速开始
 此扩展库发布于Maven中央仓库，你可以使用 **Maven** 或 **Gradle** 等任何支持的手段来使用本扩展。
